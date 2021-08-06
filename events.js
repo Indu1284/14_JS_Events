@@ -1,7 +1,7 @@
 
 /********  Variablen **********/
-//const btn = document.getElementById("trigBtn");
-const btn = document.body;
+const btn = document.getElementById("trigBtn");
+//const btn = document.body;
 let status = true;
 
 /***** event - Listener ****** */
