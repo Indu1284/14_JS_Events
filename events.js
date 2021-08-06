@@ -4,22 +4,44 @@
 const btn = document.body;
 let status = true;
 
-btn.addEventListener("click",actOnBtnEvent);
+/***** event - Listener ****** */
+
+// Website geladen --> auf(anfangs) - Zustand umschalten
+
+
+window.addEventListener("load",toggleStatus);
+
+// Klick auf Btn  --> Zustand umschalten
+btn.addEventListener("click",toggleStatus);
 
 function actOnBtnEvent() {
     ausgabe("Hi");
 }
 
-/***** Business-Logic | Toggle ***** */
-function toggleStatus() {
+/********  Business-Logic | Toggle **********/
+
+// toggleStatus();
+function  toggleStatus() {
     status = !status;
-    ausgabe(status);
+    updateView();
 }
 
 /*******  Änderung in View-Schicht *******/
 
+// Modul: Update der View-Schicht | Test:
+// .. View folgt status
+function updateView() {
+    if (status) {
+        switchClassName("night");
+        switchBtnTxt("day");
+    } else {
+        switchClassName("day");
+        switchBtnTxt("night");
+    }
+}
+
 // Modul : Umschaltung Klassenamen | Test:
-switchClassName("night");
+//switchClassName("night");
 //switchClassName("day");
 function switchClassName(modeStr) {
     document.body.className = modeStr;
